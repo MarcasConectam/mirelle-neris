@@ -286,3 +286,10 @@ h2, h3 { hyphens: manual; }
       linear-gradient(to bottom, transparent 42%, rgb(245 233 212 / .55) 62%, rgb(245 233 212 / .85) 80%, var(--fundo) 100%);
   }
 }
+
+/* Sobre: retrato real da Mirelle em arco */
+.secao-grade--sobre { align-items: center; gap: clamp(32px, 6vw, 96px); grid-template-columns: minmax(0, 560px) minmax(0, 1fr); }
+.retrato { position: relative; margin: 0; justify-self: center; width: min(100%, 440px); }
+.retrato::before { content: ""; position: absolute; inset: -14px 14px 14px -14px; border: 1px solid var(--areia); border-radius: 999px 999px 24px 24px; z-index: -1; }
+.retrato img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; object-position: 50% 20%; border-radius: 999px 999px 24px 24px; box-shadow: 0 30px 60px -30px rgb(84 50 30 / .35); }
+@media (max-width: 860px) { .secao-grade--sobre { grid-template-columns: minmax(0, 1fr); gap: 36px; } .retrato { width: min(82%, 360px); order: -1; } }
