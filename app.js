@@ -191,3 +191,18 @@
     });
   }
 })();
+
+// Retrato da seção Sobre: parallax leve na rolagem
+(() => {
+  const r = document.querySelector('.retrato');
+  if (!r || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let pendente = false;
+  const mover = () => {
+    pendente = false;
+    const b = r.getBoundingClientRect();
+    const p = (b.top + b.height / 2 - innerHeight / 2) / innerHeight; // -1..1
+    r.style.setProperty('--sobe', `${Math.max(-1, Math.min(1, p)) * 28}px`);
+  };
+  addEventListener('scroll', () => { if (!pendente) { pendente = true; requestAnimationFrame(mover); } }, { passive: true });
+  mover();
+})();
